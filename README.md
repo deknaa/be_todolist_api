@@ -61,3 +61,118 @@ Authorization: Bearer {token}
   "message": "Berhasil Logout"
 }
 ```
+
+## 📋 Task Management (Auth Required)
+
+### 📄 Get All Tasks
+- **Endpoint:** `GET /api/tasks`
+- **Description:** Menampilkan semua task milik user yang login.
+- **Headers:**
+```
+Authorization: Bearer {token}
+```
+- **Response (200):**
+```json
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "title": "Makan Siang",
+    "description": "Jam Makan Siang",
+    "completed": 0,
+    "created_at": "2025-04-30T05:55:51.000000Z",
+    "updated_at": "2025-04-30T05:55:51.000000Z"
+  }
+]
+```
+
+### ➕ Create Task
+- **Endpoint:** `POST /api/tasks`
+- **Description:** Menambahkan task baru.
+- **Headers:**
+```
+Authorization: Bearer {token}
+```
+- **Request Body:**
+```json
+{
+  "title": "Makan Siang",
+  "description": "Jam Makan Siang"
+}
+```
+- **Response (201):**
+```json
+{
+  "message": "Task baru berhasil dibuat",
+  "task": {
+    "id": 1,
+    "title": "Makan Siang",
+    "description": "Jam Makan Siang"
+  }
+}
+```
+
+### 📄 Get Task By id
+- **Endpoint:** `GET /api/tasks/{id}`
+- **Description:** Menampilkan task berdasarkan id.
+- **Headers:**
+```
+Authorization: Bearer {token}
+```
+- **Response (200):**
+```json
+{
+  "message": "Berhasil mendapatkan task berdasarkan id",
+  "task": {
+      "id": 1,
+      "user_id": 1,
+      "title": "Makan Siang",
+      "description": "Jam Makan Siang",
+      "completed": 0,
+      "created_at": "2025-04-30T05:55:51.000000Z",
+      "updated_at": "2025-04-30T05:55:51.000000Z"
+  }
+}
+```
+
+### ✏️ Update Task
+- **Endpoint:** `PUT /api/tasks/{id}`
+- **Description:** Update task berdasarkan ID.
+- **Headers:**
+```
+Authorization: Bearer {token}
+```
+- **Request Body:**
+```json
+{
+  "title": "Belajar Membuat API",
+  "description": "Belajar Membuat API dengan Laravel Sanctum"
+}
+```
+
+### ❌ Delete Task
+- **Endpoint:** `DELETE /api/tasks/{id}`
+- **Description:** Menghapus task berdasarkan ID.
+- **Headers:**
+```
+Authorization: Bearer {token}
+```
+- **Response (200):**
+```json
+{
+    "message": "Berhasil menghapus task",
+    "task": {
+        "id": 1,
+        "user_id": 1,
+        "title": "Belajar Membuat API",
+        "description": "Belajar Membuat API dengan Laravel Sanctum",
+        "completed": 0,
+        "created_at": "2025-04-30T05:55:51.000000Z",
+        "updated_at": "2025-04-30T06:32:33.000000Z"
+    }
+}
+```
+
+## 🧪 Tips Penggunaan dengan Postman
+- Gunakan tab **Authorization > Bearer Token** saat testing endpoint yang membutuhkan autentikasi.
+- Pastikan kamu sudah login dan menyimpan token dari response.
