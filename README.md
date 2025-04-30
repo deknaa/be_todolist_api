@@ -105,9 +105,12 @@ Authorization: Bearer {token}
 {
   "message": "Task baru berhasil dibuat",
   "task": {
-    "id": 1,
-    "title": "Makan Siang",
-    "description": "Jam Makan Siang"
+      "title": "Makan Siang",
+      "description": "Jam Makan Siang",
+      "user_id": 1,
+      "updated_at": "2025-04-30T05:55:51.000000Z",
+      "created_at": "2025-04-30T05:55:51.000000Z",
+      "id": 1
   }
 }
 ```
@@ -145,8 +148,16 @@ Authorization: Bearer {token}
 - **Request Body:**
 ```json
 {
-  "title": "Belajar Membuat API",
-  "description": "Belajar Membuat API dengan Laravel Sanctum"
+  "message": "Sukses melakukan update data task",
+  "task": {
+      "id": 1,
+      "user_id": 1,
+      "title": "Belajar Membuat API",
+      "description": "Belajar Membuat API dengan Laravel Sanctum",
+      "completed": 0,
+      "created_at": "2025-04-30T05:55:51.000000Z",
+      "updated_at": "2025-04-30T06:32:33.000000Z"
+  }
 }
 ```
 
